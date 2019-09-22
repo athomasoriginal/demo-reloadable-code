@@ -5,7 +5,45 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <div id="root"></div>
+    <div class="calendar">
+      <div class="calendar__header" role="presentation">
+        <h1 class="calendar__header-title">Calendar</h1>
+      </div>
+
+      <div class="calendar-form__wrapper">
+        <form class="calendar-form">
+
+          <div class="calendar-form__field">
+            <label for="event_name" class="calendar-form__label">Event Name:</label>
+            <input id="event_name" class="calendar-form__input" type="text" name="event_name" placeholder="Event Name" required>
+          </div>
+
+          <div class="calendar-form__field">
+            <label for="event_start" class="calendar-form__label">Start Time:</label>
+            <select id="event_start" class="calendar-form__input" type="text" name="event_start_time" placeholder="Start Time" required>
+              <!-- Populated via JS - one value to prevent flashing while JS loads -->
+              <option value="0">9:00</option>
+            </select>
+          </div>
+
+          <div class="calendar-form__field">
+            <label for="event_end" class="calendar-form__label">End Time:</label>
+            <select id="event_end" class="calendar-form__input" type="text" name="event_end_time" placeholder="End Time" required>
+              <!-- Populated via JS - one value to prevent flashing while JS loads -->
+              <option value="0">9:15</option>
+            </select>
+          </div>
+
+          <button class="calendar-form__submit-btn" type="submit">Add</button>
+
+        </form>
+      </div>
+
+      <div class="calendar-events">
+        <!-- Populated via JS -->
+      </div>
+
+    </div>
 
     <script src="/cljs-out/dev-main.js"></script>
   </body>

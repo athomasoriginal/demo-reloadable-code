@@ -1,29 +1,195 @@
-:root {
-  --color-purple: rgba(197, 18, 193, 1);
-  --color-pink: rgba(241, 50, 50, 1);
+/* -----------------------------------------------------------------------------
+   Resets
+   -------------------------------------------------------------------------- */
+html {
+  box-sizing: border-box;
+  min-height:100vh;
+  margin: 0;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }
 
-#root {
-  margin: 0;
-  height: 100vh;
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+input,
+label,
+select,
+button,
+textarea {
+  margin:0;
+  border:0;
+  padding:0;
+  display:inline-block;
+  vertical-align:middle;
+  white-space:normal;
+  background:none;
+  line-height:1;
+
+  /* Browsers have different default form fonts */
+  font-size:13px;
+  font-family:Arial;
+}
+
+input:focus {
+	outline:0;
+}
+
+/* -----------------------------------------------------------------------------
+   General Calendar Styles
+   -------------------------------------------------------------------------- */
+
+body {
   display: flex;
-  font-family: Arial;
+  height: 100vh;
+  width: 100%;
   align-items: center;
   justify-content: center;
+  margin: 0;
+
+  /* gradient */
+  background-color: #EFEDFD;
+  background: -webkit-linear-gradient(to left, #DEDAFC, #EFEDFD);
+  background: linear-gradient(to left, #DEDAFC, #EFEDFD);
 }
 
-.site__title {
-  font-size: 100px;
-  width: 50%;
-  text-align: center;
+.calendar {
+  min-height: 600px;
+  width: 400px;
+  background-color: #F8F8FA; /* white */
+
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.1);
+
+  /* center everything vertically */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.site__title-text {
-  background: -webkit-linear-gradient(
-    34deg,
-    var(--color-purple),
-    var(--color-pink)
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* -----------------------------------------------------------------------------
+   Calendar Header
+   -------------------------------------------------------------------------- */
+
+.calendar__header {
+  height: 300px;
+  width: 100%;
+
+  /* gradient */
+  background-color: #C7BFFA;
+  background: -webkit-linear-gradient(to left, #ACA2F9, #C7BFFA);
+  background: linear-gradient(to left, #ACA2F9, #C7BFFA);
+
+  border-radius: 3px 3px 0px 0px;
+  box-shadow: 0 6px 6px -6px rgba(0, 0, 0, .2);
+
+}
+
+.calendar__header-title {
+  color: #FCFBFE; /* white */
+  font-weight: 300;
+}
+
+/* -----------------------------------------------------------------------------
+   Calendar Form
+   -------------------------------------------------------------------------- */
+
+.calendar-form__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 250px;
+  width: 85%;
+  margin-top: -14em;
+  margin-bottom: 2em;
+  background-color: #FFFFFF; /* white */
+
+  border-radius: 3px 3px 3px 3px;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-form {
+  width: 85%;
+  padding-top: 1em;
+}
+
+.calendar-form__field {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1em;
+}
+.calendar-form__field:nth-child(3) {
+  padding-bottom: 0;
+}
+
+.calendar-form__label {
+  color: #C2BBF5; /* Melrose purple */
+  align-self: left;
+  font-weight: bold;
+  padding-bottom: .5em;
+}
+
+.calendar-form__input {
+  color: #716F7B; /* Raven gray */
+  height: 2em;
+  font-size: 18px;
+}
+.calendar-form__input ::placeholder {
+  color: #BABABE; /* French gray */
+}
+.calendar-form__input :focus{
+	border-bottom: 1px solid #C2BBF5; /* Melrose purple */
+}
+
+.calendar-form__submit-btn {
+  height: 15px;
+  width: 80%;
+  cursor: pointer;
+  color: #B9B1F3; /* Perano purple */
+}
+
+
+/* -----------------------------------------------------------------------------
+   Calendar Events
+   -------------------------------------------------------------------------- */
+
+.calendar-events {
+  height: 200px;
+  width: 85%;
+  overflow: hidden;
+  overflow-y: scroll;
+  background-color: #FFFFFF; /* white */
+
+  border-radius: 3px 3px 3px 3px;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-event {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1em 0 1em 0;
+  border-left: 3px solid #B8AFF3; /* biloba purple */
+}
+
+.calendar-event__title {
+  margin: 0;
+  padding-bottom: .5em;
+  color: #605D6B; /* smoky gray */
+  font-weight: bold;
+  width: 85%;
+  text-align: left;
+}
+
+.calendar-event__time {
+  margin: 0;
+  color: #BABABE; /* French gray */
+  font-size: 12px;
+  width: 85%;
+  text-align: left;
 }
