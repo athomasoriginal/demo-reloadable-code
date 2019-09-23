@@ -174,12 +174,12 @@
   (events/listen
     (.. js/document (querySelector ".calendar-form"))
     "submit"
-    handle-add-event!))
+    handle-add-event!)
 
-(events/listen
-  (.. js/document (querySelector "#event_start"))
-  "change"
-  update-event-end-dropdown!)
+  (events/listen
+    (.. js/document (querySelector "#event_start"))
+    "change"
+    update-event-end-dropdown!))
 
 (defonce initial-load (setup))
 
