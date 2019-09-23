@@ -181,12 +181,16 @@
     "change"
     update-event-end-dropdown!))
 
-(defonce initial-load (setup))
+
+(defonce initial-load
+  (do (setup)
+
+      ; only need these to run once at the beginning
+      (set! (.. start-time-dropdown -innerHTML) (time-option-list (time-range)))
+
+      (set! (.. end-time-dropdown -innerHTML) (time-option-list (time-range 9.25)))))
+
 
 ;; Init
-
-(set! (.. start-time-dropdown -innerHTML) (time-option-list (time-range)))
-
-(set! (.. end-time-dropdown -innerHTML) (time-option-list (time-range 9.25)))
 
 (update-event-container! @app-state)
