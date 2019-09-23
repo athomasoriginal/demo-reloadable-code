@@ -165,16 +165,23 @@
 
 ; Register event listeners
 
-(events/listen
-  (.. js/document (querySelector ".calendar-form"))
-  "submit"
-  handle-add-event!)
+(defn ^:before-load teardown []
+  (events/removeAll
+   (.querySelector js/document ".calendar-form")))
+
+
+(defn ^:after-load setup []
+  (events/listen
+    (.. js/document (querySelector ".calendar-form"))
+    "submit"
+    handle-add-event!))
 
 (events/listen
   (.. js/document (querySelector "#event_start"))
   "change"
   update-event-end-dropdown!)
 
+(defonce initial-load (setup))
 
 ;; Init
 
