@@ -104,7 +104,7 @@
 ; ------------------------------------------------------------------------------
 
 ; State
-(def app-state (atom []))
+(defonce app-state (atom []))
 
 
 ; Selectors
@@ -179,7 +179,9 @@
   (events/listen
     (.. js/document (querySelector "#event_start"))
     "change"
-    update-event-end-dropdown!))
+    update-event-end-dropdown!)
+
+  (update-event-container! @app-state))
 
 
 (defonce initial-load
@@ -189,8 +191,3 @@
       (set! (.. start-time-dropdown -innerHTML) (time-option-list (time-range)))
 
       (set! (.. end-time-dropdown -innerHTML) (time-option-list (time-range 9.25)))))
-
-
-;; Init
-
-(update-event-container! @app-state)
